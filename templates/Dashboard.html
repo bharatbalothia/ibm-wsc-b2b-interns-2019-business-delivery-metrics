@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+        <div class="container-fluid">
+    <br>
+        <form action="/talk" method="POST">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Case Numbers</label>
+            <input type="text" name="search" class="form-control" placeholder="Search Cases" required>
+                </div>
+            </div>
+            <div class="col-sm-2" style="margin-left: 25px">
+        <div class="form-group">
+            <label>From Date:</label>  <input type="date" name="fromDate" class="form-control" value="2019-02-02" required>
+             </div>
+            </div>
+            <div class="col-sm-2" style="margin-left: 25px">
+        <div class="form-group">
+            <label>To Date: </label>  <input type="date" name="toDate"  class="form-control" value="2019-02-27" required>
+            </div>
+            </div>
+            <div class="col-sm-3">
+            <input style="margin-top: 25px" class="btn btn-primary" type="submit" value="Submit">
+            </div>
+        </form>
+
+        <div>
+            <table id="table3" class="table table-hover" cellspacing="0" cellpadding="0" style="table-layout: auto">
+            <tr>
+                <th style="width: 10%">Case Number</th>
+              <th  style="width: 10%">Created By</th>
+                <th  style="width: 10%">Creation Date</th>
+                <th style="width: 10%">Person Type</th>
+                <th style="width: 40%">Messages</th>
+                <th  style="width: 5%">Score</th>
+                <th  style="width: 5%">Sentiment</th>
+                <th  style="width: 10%">Remarks</th>
+                <th  style="width: 5%"></th>
+                <th  style="width: 5%"></th>
+            </tr>
+                    {%  for mess in data %}
+                <tr>
+                <td>
+                        {{ mess.case_number }}
+                    </td>
+                <td>
+                        {{ mess.created_by }}
+                    </td>
+                    <td>
+                        {{ mess.creation_date }}
+                    </td>
+                    <td>
+                        {{ mess.person_type }}
+                    </td>
+                    <td >
+                        {{ mess.body }}
+                    </td>
+                    <td>
+                        {{ mess.score }}
+                    </td>
+                    <td>
+                        {{ mess.label }}
+                    </td>
+                    <!--<td>
+                    <input type="radio" id="switch_left" name="{{ mess._id }}" value="Correct" checked/>
+                      <label for="switch_left">Correct</label>
+                        </td>
+                    <td>
+                      <input type="radio" id="switch_right" name="{{ mess._id }}" value="Incorrect" />
+                      <label for="switch_right">Incorrect</label>
+                        </td>
+                    </div>-->
+
+                     <form action="{{url_for('message_review', message_id=mess._id)}}" method="post">
+                         <td><textarea name="remarks" class="form-control" cols="10" rows="1"></textarea></td>
+                         <td><input name="data" type="hidden" value="{{ data }}"></td>
+                        <td><input type="submit" name="response" value="Correct" class="btn btn-default pull-right"></td>
+                        <td><input type="submit" name="response" value="Incorrect" class="btn btn-danger"></td>
+                     </form>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        </div>
+
+{% endblock %}
