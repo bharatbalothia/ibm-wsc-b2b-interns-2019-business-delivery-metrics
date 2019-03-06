@@ -10,4 +10,5 @@ def try_parsing_date(text):
     raise ValueError('no valid date format found')
 
 def correctString(input_string):
-    return input_string.replace(".  ", ".").replace("&nbsp;"," ")
+    input_string = input_string.replace(".  ", ".").replace("&nbsp;"," ")
+    return (input_string[:2040] + '..') if len(input_string) > 2040 else input_string

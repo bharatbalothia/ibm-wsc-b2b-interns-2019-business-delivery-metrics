@@ -7,42 +7,44 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Case Numbers</label>
-            <input type="text" name="search" class="form-control" placeholder="Search Cases" required>
+            <input type="text" name="search" class="form-control" placeholder="Search Cases">
                 </div>
             </div>
             <div class="col-sm-2" style="margin-left: 25px">
         <div class="form-group">
-            <label>From Date:</label>  <input type="date" name="fromDate" class="form-control" value="2019-02-02" required>
+            <label>From Date:</label>  <input type="date" name="fromDate" class="form-control" value="2019-02-20" required>
              </div>
             </div>
             <div class="col-sm-2" style="margin-left: 25px">
         <div class="form-group">
-            <label>To Date: </label>  <input type="date" name="toDate"  class="form-control" value="2019-02-27" required>
+            <label>To Date: </label>  <input type="date" name="toDate"  class="form-control" value="2019-03-04" required>
             </div>
             </div>
             <div class="col-sm-3">
             <input style="margin-top: 25px" class="btn btn-primary" type="submit" value="Submit">
             </div>
         </form>
-
         <div>
-            <table id="table3" class="table table-hover" cellspacing="0" cellpadding="0" style="table-layout: auto">
+            <table id="table3" class="table table-hover" style="border-collapse:collapse;
+    table-layout:fixed; ">
             <tr>
                 <th style="width: 10%">Case Number</th>
-              <th  style="width: 10%">Created By</th>
+              <th  style="width: 5%">Created By</th>
                 <th  style="width: 10%">Creation Date</th>
                 <th style="width: 10%">Person Type</th>
-                <th style="width: 40%">Messages</th>
+                <th style="width: 30%">Messages</th>
                 <th  style="width: 5%">Score</th>
                 <th  style="width: 5%">Sentiment</th>
+                <th  style="width: 5%">Class</th>
                 <th  style="width: 10%">Remarks</th>
                 <th  style="width: 5%"></th>
                 <th  style="width: 5%"></th>
             </tr>
                     {%  for mess in data %}
                 <tr>
-                <td>
-                        {{ mess.case_number }}
+                <td >
+                    <span style="background-color: {% if mess.severity == '0'%} #b3b3ff {% elif mess.severity == '1' %} red
+                        {% elif mess.severity == '2' %} orange {% elif mess.severity == '3' %} blue {% elif mess.severity == '4' %} green {% endif %} ; color: white "> {{ mess.case_number }} </span>
                     </td>
                 <td>
                         {{ mess.created_by }}
@@ -62,6 +64,9 @@
                     <td>
                         {{ mess.label }}
                     </td>
+                    <td>
+                        {{ mess.class }}
+                    </td>
                     <!--<td>
                     <input type="radio" id="switch_left" name="{{ mess._id }}" value="Correct" checked/>
                       <label for="switch_left">Correct</label>
@@ -74,7 +79,7 @@
 
                      <form action="{{url_for('message_review', message_id=mess._id)}}" method="post">
                          <td><textarea name="remarks" class="form-control" cols="10" rows="1"></textarea></td>
-                         <td><input name="data" type="hidden" value="{{ data }}"></td>
+                         <input name="data" type="hidden" value="{{ data }}">
                         <td><input type="submit" name="response" value="Correct" class="btn btn-default pull-right"></td>
                         <td><input type="submit" name="response" value="Incorrect" class="btn btn-danger"></td>
                      </form>

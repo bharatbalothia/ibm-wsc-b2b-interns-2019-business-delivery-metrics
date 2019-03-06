@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	<link rel="stylesheet" href="../static/css/radioButton.css">
+      <link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+      <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
       <style>
 	body {font-family: Arial, Helvetica, sans-serif;}
@@ -95,10 +97,40 @@
     {
         max-height: 100%;
     }
+          .cart-button {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+/* basic positioning */
+.legend { list-style:none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .s1 { background-color: red; }
+.legend .s2 { background-color: orange; }
+.legend .s3 { background-color: blue; }
+.legend .s4 { background-color: green; }
+.legend .s5 { background-color: #b3b3ff; }
+
+.cart-button:hover .cart-dropdown {-
+    display: block;
+}
 </style>
   </head>
   <body >
+  {% include 'includes/_model.html' %}
   {% include 'includes/_navbar.html' %}
+
     <div class="container-fluid">
         {% block body %}{% endblock %}<br><br>
         {% include 'includes/_messages.html' %}
@@ -120,5 +152,13 @@
                         };
             var tf2 = setFilterGrid( "table3",table2_Props );
     </script>-->
+  <script>
+      $('#myModal').on('shown.bs.modal', function () {
+  $('#myBtn').focus()
+})
+
+
+      $("#mydate").datepicker().datepicker("setDate", new Date());
+  </script>
   </body>
 </html>
