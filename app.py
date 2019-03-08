@@ -4,6 +4,7 @@ from flask_session import Session, FileSystemSessionInterface
 import couchdb
 import datetime
 from ldap3 import *
+from authenticate import *
 from functools import wraps
 from analysis import SentimentSentiwordnet, SentimentWatsonNLU, Escalation_classifier
 from utility import correctString, try_parsing_date
@@ -32,15 +33,18 @@ def sentimentAnalyser(body):
     contents = []
     for data in body:
         analyse_this = correctString(data['body'])
-        #resp = SentimentSentiwordnet.sentiwordNLU(analyse_this)
-        resp = SentimentWatsonNLU.watsonNLU(analyse_this)
-        nlc_class = Escalation_classifier.watsonClassifer(analyse_this)
+        resp = SentimentSentiwordnet.sentiwordNLU(analyse_this)
+        #resp = SentimentWatsonNLU.watsonNLU(analyse_this)
+        #nlc_class = Escalation_classifier.watsonClassifer(analyse_this)
         content = data
-        content['score'] = resp[0]
-        content['class'] = nlc_class
-        content['label'] = resp[1]
-        content['body'] = analyse_this
-        contents.append(content)
+        if float(resp[0]) == 0.0:
+            pass
+        else:
+            content['score'] = float(resp[0])
+            #content['class'] = nlc_class
+            content['label'] = resp[1]
+            content['body'] = analyse_this
+            contents.append(content)
         #print(contents)
         #print(i['score'] + "     " + i['label'] + "         " + analyse_this)
 
@@ -76,50 +80,17 @@ def login():
                     # flash('You are now logged in', 'success')
                     return redirect(url_for('index'))
 
-
-        server = Server('ldap://bluepages.ibm.com', get_info=ALL)
-        c = Connection(server, user="", password="", raise_exceptions=False)
-        noUseBool = c.bind()
-
-        checkUserIBM = c.search(search_base='ou=bluepages,o=ibm.com',
-                                search_filter='(mail=%s)' % (POST_USERNAME),
-                                search_scope=SUBTREE,
-                                attributes=['dn', 'givenName'])
-
-        if (checkUserIBM == False):
+        isLoged = authenticate(POST_USERNAME,POST_PASSWORD)
+        if not isLoged[0] :
             session['authorized'] = 0
             error = 'Invalid login'
             return render_template('login.html', error=error)
+        else:
+            session['logged_in'] = True
+            session['username'] = isLoged[1]
 
-        # get the username of the emailID and authenticate password
-        userName = c.entries[0].givenName[0]
-        uniqueID = c.response[0]['dn']
-        c2 = Connection(server, uniqueID, POST_PASSWORD)
-        isPassword = c2.bind()
-
-        if (isPassword == False):
-            session['authorized'] = 0
-            error = 'Invalid login'
-            return render_template('login.html', error=error)
-
-        # now search group
-        checkIfAdminGroup = c.search(search_base='cn=RSC_B2B,ou=memberlist,ou=ibmgroups,o=ibm.com',
-                                     search_filter='(uniquemember=%s)' % (str(uniqueID)),
-                                     search_scope=SUBTREE,
-                                     attributes=['dn'])
-
-        if (checkIfAdminGroup == False):
-            session['authorized'] = 0
-            error = 'Invalid login'
-            return render_template('login.html', error=error)
-
-        # control reaches here if user password and group authentication is successful
-
-        session['logged_in'] = True
-        session['username'] = userName
-
-        #flash('You are now logged in', 'success')
-        return redirect(url_for('index'))
+            # flash('You are now logged in', 'success')
+            return redirect(url_for('index'))
     return render_template('login.html')
 
 
@@ -135,30 +106,62 @@ def is_logged_in(f):
 
     return wrap
 
+
 @app.route('/dashboard', methods=['GET', 'POST'])
 @is_logged_in
 def dashboard():
     return render_template('Dashboard.html')
+
+
+@app.route('/delivery_dashboard', methods=['GET', 'POST'])
+@is_logged_in
+def delivery_dashboard():
+    return render_template('deliveryDashboard.html')
+
 
 @app.route('/per_dashboard')
 @is_logged_in
 def per_dashboard():
     return render_template('under_construction.html')
 
+
 @app.route('/mapping_dashboard')
 @is_logged_in
 def mapping_dashboard():
     return render_template('under_construction.html')
+
 
 @app.route('/account_dashboard')
 @is_logged_in
 def account_dashboard():
     return render_template('under_construction.html')
 
+
 @app.route('/timespent_dashboard')
 @is_logged_in
 def timespent_dashboard():
     return render_template('under_construction.html')
+
+
+@app.route('/caseprofile/<string:case_id>')
+def caseprofile(case_id):
+    id = case_id
+    graphData = [['Creation Date', 'NLU Score']]
+    other_info = []
+    body = db[id]['Body']
+    for i in body:
+        if body[i]['creation_date'] != "":
+            creation_date = try_parsing_date(body[i]['creation_date'].split()[0]).strftime('%Y-%m-%d')
+            if 'NLUscore' in body[i]:
+                NLUscore = float(body[i]['NLUscore'])
+            else:
+                response = SentimentSentiwordnet.sentiwordNLU(body[i]['body'])
+                NLUscore = float(response[0])
+                body[i]['NLUscore'] = NLUscore
+                body[i]['NLUsentiment'] = response[1]
+            graphData.append([creation_date, NLUscore])
+            other_info.append(body[i])
+    return render_template('caseProfile.html',graphData=graphData,data = other_info)
 
 
 @app.route('/talk', methods=['GET', 'POST'])
@@ -187,7 +190,7 @@ def talk():
                         creation_date = body[id]['creation_date'].split()[0]
                         print(creation_date)
                         creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
-                        if from_date <= creation_date <= to_date :
+                        if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date :
                             data_to_be_analysed.append(body[id])
                     except:
                         pass
@@ -197,26 +200,29 @@ def talk():
         return render_template('Dashboard.html', data=resp)
     else:
         resp = []
-        for case in db:
+        print(from_date,to_date)
+        for row2 in db.view('_design/date-range/_view/date-range', startkey=from_date, endkey=to_date):
+            case = row2.id
+            print(case)
             if case in db2:
                 severity = db2[case]['Severity Level'].split()[0]
             else:
                 severity = "0"
-            last_modified_date = try_parsing_date(db[case]['Last Modified Date'].split()[0]).strftime('%Y-%m-%d')
-            if from_date <= last_modified_date <= to_date:
-                body = db[case]['Body']
-                data_to_be_analysed = []
-                for id in body:
-                    body[id]['case_number'] = case
-                    body[id]['severity'] = severity
-                    try:
-                        creation_date = body[id]['creation_date'].split()[0]
+            body = row2.value
+            data_to_be_analysed = []
+            for id in body:
+                body[id]['case_number'] = case
+                body[id]['severity'] = severity
+                try:
+                    creation_date = body[id]['creation_date'].split()[0]
+                    creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
+                    if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date:
                         print(creation_date)
-                        creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
-                        if from_date <= creation_date <= to_date:
-                            data_to_be_analysed.append(body[id])
-                    except:
-                        pass
+                        data_to_be_analysed.append(body[id])
+                except:
+                    pass
+            print(len(data_to_be_analysed))
+            if len(data_to_be_analysed) > 0:
                 analysed_case = sentimentAnalyser(data_to_be_analysed)
                 resp = resp + analysed_case
         resp = sorted(resp, key=lambda i: i['severity'], reverse=True)

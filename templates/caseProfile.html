@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+        <div  style=" align-items: center; align-self: center; align-content: center">
+
+        <div id="curve_chart" style="width: 80%; height: 500px;"></div>
+        </div>
+
+    <div>
+            <table id="table3" class="table table-hover" style="border-collapse:collapse; table-layout:fixed; ">
+            <tr>
+              <th  style="width: 10%">Created By</th>
+                <th  style="width: 10%">Creation Date</th>
+                <th style="width: 10%">Person Type</th>
+                <th style="width: 60%">Messages</th>
+                <th  style="width: 5%">Score</th>
+                <th >Sentiment</th>
+            </tr>
+                 {%  for mess in data %}
+                <tr>
+                    <td>
+                        {{ mess.created_by }}
+                    </td>
+                    <td>
+                        {{ mess.creation_date }}
+                    </td>
+                    <td>
+                        {{ mess.person_type }}
+                    </td>
+                    <td >
+                        {{ mess.body }}
+                    </td>
+                    <td>
+                        {{ mess.NLUscore }}
+                    </td>
+                    <td>
+                        {{ mess.NLUsentiment }}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+{% endblock %}

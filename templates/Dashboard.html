@@ -29,7 +29,7 @@
     table-layout:fixed; ">
             <tr>
                 <th style="width: 10%">Case Number</th>
-              <th  style="width: 5%">Created By</th>
+              <th  style="width: 10%">Created By</th>
                 <th  style="width: 10%">Creation Date</th>
                 <th style="width: 10%">Person Type</th>
                 <th style="width: 30%">Messages</th>
@@ -44,7 +44,7 @@
                 <tr>
                 <td >
                     <span style="background-color: {% if mess.severity == '0'%} #b3b3ff {% elif mess.severity == '1' %} red
-                        {% elif mess.severity == '2' %} orange {% elif mess.severity == '3' %} blue {% elif mess.severity == '4' %} green {% endif %} ; color: white "> {{ mess.case_number }} </span>
+                        {% elif mess.severity == '2' %} orange {% elif mess.severity == '3' %} blue {% elif mess.severity == '4' %} green {% endif %} ; color: white "> <a href="/caseprofile/{{ mess.case_number }}">{{ mess.case_number }} </a> </span>
                     </td>
                 <td>
                         {{ mess.created_by }}

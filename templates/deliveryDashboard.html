@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+    <br>
+        <form action="/delivery" method="POST">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Case Numbers</label>
+            <input type="text" name="search" class="form-control" placeholder="Search Cases">
+                </div>
+            </div>
+            <div class="col-sm-2" style="margin-left: 25px">
+        <div class="form-group">
+            <label>From Date:</label>  <input type="date" name="fromDate" class="form-control" value="2019-02-20" required>
+             </div>
+            </div>
+            <div class="col-sm-2" style="margin-left: 25px">
+        <div class="form-group">
+            <label>To Date: </label>  <input type="date" name="toDate"  class="form-control" value="2019-03-04" required>
+            </div>
+            </div>
+            <div class="col-sm-3">
+            <input style="margin-top: 25px" class="btn btn-primary" type="submit" value="Submit">
+            </div>
+        </form>
+        <div>
+            <table id="table3" class="table table-hover" style="border-collapse:collapse">
+            <tr>
+                <th >Case Number</th>
+                <th  >Account Name</th>
+                <th >Last Modified Date</th>
+                <th>Last Customer Messages</th>
+                <th>Score</th>
+                <th>Sentiment</th>
+                <th>Class</th>
+            </tr>
+                {%  for mess in data %}
+                <tr>
+                    <td>
+                       <span style="background-color: {% if mess.severity == '0'%} #b3b3ff {% elif mess.severity == '1' %} red
+                       {% elif mess.severity == '2' %} orange {% elif mess.severity == '3' %} blue {% elif mess.severity == '4' %} green {% endif %} ; color: white ">  <a href="/caseprofile/{{ mess.case_number }}">{{ mess.case_number}}</a></span>
+                    </td>
+                    <td>
+                        {{ mess.account_name }}
+                    </td>
+                    <td>
+                        {{ mess.last_modified_date }}
+                    </td>
+                    <td >
+                        {{ mess.last_customer_message }}
+                    </td>
+                    <td>
+                        {{ mess.NLUscore }}
+                    </td>
+                    <td>
+                        {{ mess.NLUsentiment }}
+                    </td>
+                    <td>
+                        {{ mess.class }}
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+     </div>
+
+    </div>
+
+{% endblock %}
