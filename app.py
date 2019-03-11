@@ -32,19 +32,27 @@ db2 = couch['salesforce_type']
 def sentimentAnalyser(body):
     contents = []
     for data in body:
-        analyse_this = correctString(data['body'])
-        resp = SentimentSentiwordnet.sentiwordNLU(analyse_this)
-        #resp = SentimentWatsonNLU.watsonNLU(analyse_this)
-        #nlc_class = Escalation_classifier.watsonClassifer(analyse_this)
         content = data
-        if float(resp[0]) == 0.0:
-            pass
-        else:
-            content['score'] = float(resp[0])
-            #content['class'] = nlc_class
-            content['label'] = resp[1]
+        analyse_this = correctString(data['body'])
+        if 'NLUscore' in data:
+            content['score'] = float(data['NLUscore'])
+            # content['class'] = nlc_class
+            content['label'] = data['NLUsentiment']
             content['body'] = analyse_this
             contents.append(content)
+        else:
+            resp = SentimentSentiwordnet.sentiwordNLU(analyse_this)
+            #resp = SentimentWatsonNLU.watsonNLU(analyse_this)
+            #nlc_class = Escalation_classifier.watsonClassifer(analyse_this)
+            print('this case number does not have scores',data['case_number'])
+            if float(resp[0]) == 0.0:
+                pass
+            else:
+                content['score'] = float(resp[0])
+                #content['class'] = nlc_class
+                content['label'] = resp[1]
+                content['body'] = analyse_this
+                contents.append(content)
         #print(contents)
         #print(i['score'] + "     " + i['label'] + "         " + analyse_this)
 
@@ -159,7 +167,8 @@ def caseprofile(case_id):
                 NLUscore = float(response[0])
                 body[i]['NLUscore'] = NLUscore
                 body[i]['NLUsentiment'] = response[1]
-            graphData.append([creation_date, NLUscore])
+            if body[i]['person_type'] != 'IBM Employee':
+                graphData.append([creation_date, NLUscore])
             other_info.append(body[i])
     return render_template('caseProfile.html',graphData=graphData,data = other_info)
 

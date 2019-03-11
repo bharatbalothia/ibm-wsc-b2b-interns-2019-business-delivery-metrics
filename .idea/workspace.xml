@@ -2,128 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08a7866f-7952-4380-8b3c-266c79784968" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authenticate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/radioButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/tag.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/colsVisibility.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/filtersVisibility.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/tablefilter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/blank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_filter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/bg_infDiv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/bg_th.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_eraser.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_over_eraser.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_over_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_over_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_over_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_over_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/default/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/downsimple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/icn_clp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/icn_exp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/icn_filter.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/icn_filterActive.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/bg_headers.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/bg_infDiv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/btn_filter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/mytheme/mytheme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/bg_skyblue.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/btn_prev_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/icn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/skyblue/skyblue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/btn_prev_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/icn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/transparent/transparent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/style/themes/upsimple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/tablefilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/tablefilter.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/tf-0-9d01916cb7bd885f9f23.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilter/tf-0-9d01916cb7bd885f9f23.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/colsVisibility.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/filtersVisibility.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/tablefilter.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/blank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_filter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/bg_infDiv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/bg_th.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_eraser.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_over_eraser.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_over_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_over_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_over_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_over_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/default/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/downsimple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/icn_clp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/icn_exp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/icn_filter.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/icn_filterActive.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/bg_headers.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/bg_infDiv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/btn_filter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/btn_previous_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/mytheme/mytheme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/bg_skyblue.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/btn_prev_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/icn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/skyblue/skyblue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/btn_first_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/btn_last_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/btn_next_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/btn_prev_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/icn_clear_filters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/images/img_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/transparent/transparent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tablefilterstyle/themes/upsimple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/under_construction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/under_construction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,15 +13,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CaseClassification$CaseClassification.coverage" NAME="CaseClassification Coverage Results" MODIFIED="1552039140728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CaseClassification$CaseClassification.coverage" NAME="CaseClassification Coverage Results" MODIFIED="1552278724037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="163" column="46" selection-start-line="163" selection-start-column="46" selection-end-line="163" selection-end-column="55" />
+            <state relative-caret-position="2295">
+              <caret line="172" column="84" lean-forward="true" selection-start-line="172" selection-start-column="84" selection-end-line="172" selection-end-column="84" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -275,11 +156,11 @@
         <option value="$PROJECT_DIR$/templates/under_construction.html" />
         <option value="$PROJECT_DIR$/authenticate.py" />
         <option value="$PROJECT_DIR$/utility.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/css/radioButton.css" />
         <option value="$PROJECT_DIR$/static/css/tag.css" />
         <option value="$PROJECT_DIR$/static/js/basic.js" />
         <option value="$PROJECT_DIR$/templates/layout.html" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -374,12 +255,12 @@
       <workItem from="1551074485284" duration="7023000" />
       <workItem from="1551175532794" duration="48088000" />
       <workItem from="1551424642294" duration="13620000" />
-      <workItem from="1551676213794" duration="57522000" />
+      <workItem from="1551676213794" duration="61175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144468000" />
+    <option name="totallyTimeSpent" value="148121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -608,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="163" column="46" selection-start-line="163" selection-start-column="46" selection-end-line="163" selection-end-column="55" />
+        <state relative-caret-position="2295">
+          <caret line="172" column="84" lean-forward="true" selection-start-line="172" selection-start-column="84" selection-end-line="172" selection-end-column="84" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
