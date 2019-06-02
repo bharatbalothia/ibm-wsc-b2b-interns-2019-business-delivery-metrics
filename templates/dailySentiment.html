@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+  <h1>Case Message sentiment</h1>
+  <form action="/sentiment" method="POST" enctype='multipart/form-data'>
+      <div class="form-row container" style="width: 30%">
+            <div class="form-group row-md-6">
+            <!--<label>Enter an Accounts Name</label>
+                <select name="account" class="form-control">
+                    {% for account in account_list %}
+                        <option>{{ account }}</option>
+                    {% endfor %}
+                </select>-->
+            <label>Upload your Daily Delivery:</label>
+            <input type="file" name="delivery_file" class="form-control">
+            </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+    {% if downloadFile %}
+                <span style="position: absolute"> File is available for download.
+                <form method="post" action="/downloadFILE">
+                    <input type="hidden" name="file" value="{{ downloadFile }}">
+                    <button class="btn waves-effect waves-light btn-primary" type="submit">Click Here</button>
+                </form>
+                </span>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <div>
+        <table class="table table-striped" style="border-collapse:collapse; table-layout:fixed" >
+            <tr>
+              <th>Case Number</th>
+                <th>Account Name</th>
+                <th>Person Type</th>
+                <th style="width: 40%">Message</th>
+                <th>Score</th>
+            </tr>
+            <h4>{{ file_name }}</h4>
+
+            {% for data in recommended_resourse %}
+                <tr>
+                {% if data['Case Number'] %}
+                    <td>{{ data['Case Number'] }}</td>
+                    <td>{{ data['Account Name'] }}</td>
+                    <td>{{ data['Person Type'] }}</td>
+                    <td>{{ data['message'] }}</td>
+                    <td>{{ data['Score'] }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+{% endblock %}

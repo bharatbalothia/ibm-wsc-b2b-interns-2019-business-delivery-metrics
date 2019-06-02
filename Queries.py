@@ -1,0 +1,1 @@
+select = "select casenumber,date(to_date(LEFT(lastmodifieddate,length(lastmodifieddate)-2),'MM/DD/YYYY HH:MI')) from opencases where date(to_date(LEFT(lastmodifieddate,length(lastmodifieddate)-2),'MM/DD/YYYY HH:MI')) > date('04/22/2019')"

@@ -7,11 +7,15 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
 		  {% if session.logged_in %}
+              <!--
             <li><a href="/dashboard">Delivery</a></li>
-            <li><a href="/per_dashboard"> PER</a></li>
-            <li><a href="/mapping_dashboard">Mapping</a></li>
+            <li><a href="/per_dashboard">Resource Recommender</a></li>
+            <li><a href="/mapping_dashboard">Delivery Sentiment</a></li>
             <li><a href="/account_dashboard">Accounts</a></li>
             <li><a href="/timespent_dashboard">Time Spent</a></li>
+            -->
+              <li><a href="/dashboard">Delivery</a></li>
+            <li><a href="/mapping_dashboard">Delivery Sentiment</a></li>
           {% endif %}
           </ul>
 

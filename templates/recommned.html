@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+  <h1>Recommend Resourses</h1>
+                            <div style="position:absolute; right: 0; padding-right: 20px;">
+                                <ol>
+                                    <li>Resource has Worked on that account previously</li><br>
+                                    <li>Higher Appreciation</li><br>
+                                </ol>
+                            </div>
+  <form action="/recommender" method="POST" enctype='multipart/form-data'>
+      <div class="form-row container" style="width: 30%">
+            <div class="form-group row-md-6">
+            <!--<label>Enter an Accounts Name</label>
+                <select name="account" class="form-control">
+                    {% for account in account_list %}
+                        <option>{{ account }}</option>
+                    {% endfor %}
+                </select>-->
+            <label>Upload your Daily Delivery:</label>
+            <input type="file" name="delivery_file" class="form-control">
+            </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+    <div>
+        <table class="table table-striped">
+            <tr>
+              <th>Case Number</th>
+                <th>Account Name</th>
+                <th>Case Type</th>
+                <th>Resource Name</th>
+                <th>Team</th>
+            </tr>
+            <h4>{{ file_name }}</h4>
+            {% for data in recommended_resourse %}
+                <tr>
+                {% if data['Case Number'] %}
+                    <td>{{ data['Case Number'] }}</td>
+                    <td>{{ data['Account Name'] }}</td>
+                    <td>{{ data['Case Type'] }}</td>
+                    <td>{{ data['Resource ID'] }}</td>
+                    <td>{{ data['Team'].split()[0] }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+{% endblock %}

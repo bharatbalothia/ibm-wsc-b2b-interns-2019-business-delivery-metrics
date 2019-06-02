@@ -1,13 +1,19 @@
 import re
+import json
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging, send_file
 from flask_session import Session, FileSystemSessionInterface
 import couchdb
+import csv
+from werkzeug.utils import secure_filename
 import datetime
 from ldap3 import *
 from authenticate import *
 from functools import wraps
 from analysis import SentimentSentiwordnet, SentimentWatsonNLU, Escalation_classifier
 from utility import correctString, try_parsing_date
+import resourse_recommend
+import ibm_db
+import SentimentScore
 
 app = Flask(__name__)
 
@@ -27,6 +33,7 @@ couch = couchdb.Server("http://%s:%s@9.199.145.49:5984/" % (user, password))
 db = couch['salesforce_improved']
 db2 = couch['salesforce_type']
 
+conn = ibm_db.connect("DATABASE=SFA;HOSTNAME=9.30.161.135;PORT=50001;PROTOCOL=TCPIP;UID=db2inst1;PWD=db@inst!;", "", "")
 
 
 def sentimentAnalyser(body):
@@ -130,14 +137,116 @@ def delivery_dashboard():
 @app.route('/per_dashboard')
 @is_logged_in
 def per_dashboard():
-    return render_template('under_construction.html')
+    data = resourse_recommend.account_list()
+    return render_template('recommned.html',account_list = data)
 
+@app.route('/recommender',methods=['GET', 'POST'])
+@is_logged_in
+def recommender():
+    #account_name = str(request.form['account'])
+    senders_list = request.files['delivery_file']
+    senders_location = secure_filename(senders_list.filename)
+    senders_list.save(senders_location)
+    csvfile1 = open(senders_location, 'rt')
+    reader1 = csv.DictReader(csvfile1)
+    resp = {}
+    resp = reader1
+
+    with open(senders_location, 'r') as csvinput:
+        with open('C:\\Users\\RajnishKumarVENDORRo\\PycharmProjects\\CaseClassification\\outputfiles\\'+senders_list.filename, 'w+') as csvoutput:
+            writer = csv.writer(csvoutput, lineterminator='\n')
+            reader = csv.reader(csvinput)
+
+            all = []
+            row = next(reader)
+            row.append('Direction')
+            row.append('Recommendation Date')
+            row.append('Recommended Resource')
+            all.append(row)
+            for row in reader:
+                data = resourse_recommend.recommend(row[3], row[6])
+                row.append("inflow" if "Inflow" in senders_list.filename else "outflow")
+                row.append(datetime.datetime.today().strftime('%Y-%m-%d'))
+                row.append(data[0]['Resourse_id'] if len(data) > 0 else "No resource To recommend")
+                all.append(row)
+
+            writer.writerows(all)
+    return send_file("C:\\Users\\RajnishKumarVENDORRo\\PycharmProjects\\CaseClassification\\outputfiles\\"+senders_list.filename,as_attachment=True)
 
 @app.route('/mapping_dashboard')
 @is_logged_in
 def mapping_dashboard():
-    return render_template('under_construction.html')
+    return render_template('dailySentiment.html')
 
+
+@app.route('/sentiment',methods=['GET', 'POST'])
+@is_logged_in
+def sentiment():
+    #account_name = str(request.form['account'])
+    senders_list = request.files['delivery_file']
+    senders_location = secure_filename(senders_list.filename)
+    if '.csv' in senders_list.filename.lower():
+        senders_list.save(senders_location)
+        csvfile1 = open(senders_location, 'rt')
+    else:
+        error = "Please pass a .csv file only"
+        return render_template('dailySentiment.html', error=error)
+    reader1 = csv.DictReader(csvfile1)
+    resp =[]
+    preparingData = []
+    messagelist = []
+    for row in reader1:
+        try:
+            casenumber = row['Case Number']
+            account_name = row['Account Name: Account Name']
+            casemessage = row['Body']
+            if account_name:
+                if row['Contact Name: Full Name'] == row['Created By: Full Name']:
+                    person_type = "Customer"
+                    #print(person_type, row['Body'], SentimentScore.predict(casemessage))
+                    doc = {
+                        'Case Number': casenumber,
+                        'Account Name': account_name,
+                        'Person Type': person_type,
+                        'message': casemessage,
+                        #'Score': SentimentScore.predict(casemessage)
+                    }
+                    messagelist.append([casemessage])
+                    preparingData.append(doc)
+        except:
+            error = "Invalid File Format. The file doesn't contain Body field."
+            return render_template('dailySentiment.html', error=error)
+    try:
+        '''
+        i=0
+        for data in SentimentScore.predict(messagelist):
+            preparingData[i]['Score'] = data
+            i+=1
+        '''
+    except:
+        error = "Prediction limit exceeded for your current plan."
+        return render_template('dailySentiment.html',error=error)
+    #print(json.dumps(preparingData,indent=2))
+    print(len(preparingData))
+    csv_columns = ['Case Number', 'Account Name', 'Person Type', 'message', 'Score', 'Review', 'Correct/Incorrect']
+    csv_file = r"C:\Users\RajnishKumarVENDORRo\PycharmProjects\CaseClassification\SentimentFile\score_"+senders_list.filename
+    try:
+        with open(csv_file, 'w',newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            writer.writeheader()
+            for data in preparingData:
+                writer.writerow(data)
+    except IOError:
+        print("I/O error")
+        error = "Error Generating Report File"
+        return render_template('dailySentiment.html', recommended_resourse=preparingData,
+                               file_name=senders_list.filename,error=error)
+    return render_template('dailySentiment.html',recommended_resourse=preparingData,file_name=senders_list.filename,downloadFile = csv_file)
+
+@app.route('/downloadFILE',methods = ['GET','POST'])
+def downloadFILE():
+    filename = str(request.form['file'])
+    return send_file(filename,as_attachment=True)
 
 @app.route('/account_dashboard')
 @is_logged_in
@@ -181,7 +290,7 @@ def talk():
     from_date = request.form['fromDate']
     to_date = request.form['toDate']
 
-    if len(case_numbers)>3:
+    if len(case_numbers) > 3:
         cases = case_numbers.split(",")
         resp = []
         for case in cases:
@@ -199,7 +308,7 @@ def talk():
                         creation_date = body[id]['creation_date'].split()[0]
                         print(creation_date)
                         creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
-                        if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date :
+                        if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date:
                             data_to_be_analysed.append(body[id])
                     except:
                         pass
@@ -209,7 +318,7 @@ def talk():
         return render_template('Dashboard.html', data=resp)
     else:
         resp = []
-        print(from_date,to_date)
+        print(from_date, to_date)
         for row2 in db.view('_design/date-range/_view/date-range', startkey=from_date, endkey=to_date):
             case = row2.id
             print(case)
@@ -236,7 +345,6 @@ def talk():
                 resp = resp + analysed_case
         resp = sorted(resp, key=lambda i: i['severity'], reverse=True)
         return render_template('Dashboard.html', data=resp)
-
 
 
 @app.route('/message_review/<string:message_id>', methods=['POST'])
