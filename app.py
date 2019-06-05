@@ -13,6 +13,8 @@ from analysis import SentimentSentiwordnet, SentimentWatsonNLU, Escalation_class
 from utility import correctString, try_parsing_date
 import resourse_recommend
 import ibm_db
+import uuid
+import Db2DataAcess as dao
 import SentimentScore
 
 app = Flask(__name__)
@@ -29,9 +31,9 @@ def make_session_permanent():
 
 user = "admin"
 password = "admin"
-couch = couchdb.Server("http://%s:%s@9.199.145.49:5984/" % (user, password))
-db = couch['salesforce_improved']
-db2 = couch['salesforce_type']
+#couch = couchdb.Server("http://%s:%s@9.199.145.49:5984/" % (user, password))
+#db = couch['salesforce_improved']
+#db2 = couch['salesforce_type']
 
 conn = ibm_db.connect("DATABASE=SFA;HOSTNAME=9.30.161.135;PORT=50001;PROTOCOL=TCPIP;UID=db2inst1;PWD=db@inst!;", "", "")
 
@@ -85,15 +87,12 @@ def login():
         # Get Form Fields
         POST_USERNAME = str(request.form['username'])
         POST_PASSWORD = str(request.form['password'])
-        db2 = couch['loginuser']
-        for i in db2:
-            if db2[i]['type'] == 'user':
-                if db2[i]['username'] == POST_USERNAME:
-                    session['logged_in'] = True
-                    session['username'] = POST_USERNAME
+        if "robin" == POST_USERNAME:
+            session['logged_in'] = True
+            session['username'] = POST_USERNAME
 
-                    # flash('You are now logged in', 'success')
-                    return redirect(url_for('index'))
+            # flash('You are now logged in', 'success')
+            return redirect(url_for('index'))
 
         isLoged = authenticate(POST_USERNAME,POST_PASSWORD)
         if not isLoged[0] :
@@ -217,12 +216,11 @@ def sentiment():
             error = "Invalid File Format. The file doesn't contain Body field."
             return render_template('dailySentiment.html', error=error)
     try:
-        '''
         i=0
         for data in SentimentScore.predict(messagelist):
             preparingData[i]['Score'] = data
             i+=1
-        '''
+
     except:
         error = "Prediction limit exceeded for your current plan."
         return render_template('dailySentiment.html',error=error)
@@ -259,7 +257,7 @@ def account_dashboard():
 def timespent_dashboard():
     return render_template('under_construction.html')
 
-
+'''
 @app.route('/caseprofile/<string:case_id>')
 def caseprofile(case_id):
     id = case_id
@@ -281,108 +279,100 @@ def caseprofile(case_id):
             other_info.append(body[i])
     return render_template('caseProfile.html',graphData=graphData,data = other_info)
 
-
+'''
 @app.route('/talk', methods=['GET', 'POST'])
 @is_logged_in
 def talk():
     session['message_content'] = None
-    case_numbers = request.form['search']
+    case_numbers = request.files.get('search')
+    caselist = []
+    if case_numbers is not None:
+        senders_location = secure_filename(case_numbers.filename)
+        if '.csv' in case_numbers.filename.lower():
+            case_numbers.save(senders_location)
+            csvfile1 = open(senders_location, 'rt')
+        else:
+            error = "Please pass a .csv file only"
+            return render_template('Dashboard.html', error=error)
+        reader1 = csv.DictReader(csvfile1)
+        for row in reader1:
+            try:
+                casenumber = row['Case Number']
+                if len(casenumber)>3:
+                    #caselist.append(tuple([casenumber]))
+                    caselist.append(casenumber)
+            except:
+                error = "Case Number Field Not available"
+                return render_template('Dashboard.html', error=error)
     from_date = request.form['fromDate']
-    to_date = request.form['toDate']
-
-    if len(case_numbers) > 3:
-        cases = case_numbers.split(",")
-        resp = []
-        for case in cases:
-            if case in db:
-                body = db[case]['Body']
-                if case in db2:
-                    severity = db2[case]['Severity Level'].split()[0]
-                else:
-                    severity = "0"
-                data_to_be_analysed = []
-                for id in body:
-                    body[id]['case_number'] = case
-                    body[id]['severity'] = severity
-                    try:
-                        creation_date = body[id]['creation_date'].split()[0]
-                        print(creation_date)
-                        creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
-                        if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date:
-                            data_to_be_analysed.append(body[id])
-                    except:
-                        pass
-                analysed_case = sentimentAnalyser(data_to_be_analysed)
-                resp = resp + analysed_case
-        resp = sorted(resp, key=lambda i: i['severity'], reverse=True)
-        return render_template('Dashboard.html', data=resp)
+    print(from_date)
+    print(case_numbers)
+    #df = dao.getOpenCasesByRange(from_date=from_date,to_date=to_date)
+    if len(caselist) == 0:
+        df = dao.getOpenCasesByDate(from_date)
     else:
-        resp = []
-        print(from_date, to_date)
-        for row2 in db.view('_design/date-range/_view/date-range', startkey=from_date, endkey=to_date):
-            case = row2.id
-            print(case)
-            if case in db2:
-                severity = db2[case]['Severity Level'].split()[0]
-            else:
-                severity = "0"
-            body = row2.value
-            data_to_be_analysed = []
-            for id in body:
-                body[id]['case_number'] = case
-                body[id]['severity'] = severity
-                try:
-                    creation_date = body[id]['creation_date'].split()[0]
-                    creation_date = try_parsing_date(creation_date).strftime('%Y-%m-%d')
-                    if body[id]['person_type'] == 'Customer' and from_date <= creation_date <= to_date:
-                        print(creation_date)
-                        data_to_be_analysed.append(body[id])
-                except:
-                    pass
-            print(len(data_to_be_analysed))
-            if len(data_to_be_analysed) > 0:
-                analysed_case = sentimentAnalyser(data_to_be_analysed)
-                resp = resp + analysed_case
-        resp = sorted(resp, key=lambda i: i['severity'], reverse=True)
-        return render_template('Dashboard.html', data=resp)
+        df = dao.getOpenCasesByDateCase(from_date,tuple(caselist))
+    if not df.empty:
+        print(df.shape)
+        #df['messageID'] = df.apply(lambda x: str(uuid.uuid1()), axis=1)
+        df['LASTMODIFIEDDATE'] = df['LASTMODIFIEDDATE'].apply(lambda x: x.strftime('%Y-%m-%d'))
+        df['BODY'] = df['BODY'].apply(lambda x: correctString(x))
+        toBeScored = df['BODY'].apply(lambda x: [x])
+        df['score'] =[x for x in SentimentScore.predict(toBeScored.tolist())]
+        dictDF = df.to_dict(orient='records')
+        session['Content'] = dictDF
+        print(len(dictDF))
+        return render_template('Dashboard.html',data=dictDF)
+    else:
+        error = "No Data Available for the given date."
+        return render_template('Dashboard.html', error=error)
+
 
 
 @app.route('/message_review/<string:message_id>', methods=['POST'])
 @is_logged_in
 def message_review(message_id):
-    db3 = couch['salesforce_response']
-    contents = session.get('message_content')
+    print(message_id)
     response = request.form['response']
     remark = request.form['remarks']
-    doc = {}
-    doc['reviewed'] = {}
-    for data in contents:
-        #print(data)
-        case_id = data['case_number']
-        if data['_id'] == message_id and case_id not in db3:
-            doc['_id'] = case_id
-            doc['reviewed'][message_id] = data
-            doc['reviewed'][message_id]['response'] = response
-            doc['reviewed'][message_id]['reviewed_by'] = session['username']
-            doc['reviewed'][message_id]['remarks'] = remark
-            db3.save(doc)
-            #print(doc)
+    somedata = session['Content']
+    print(len(somedata))
+    print(somedata[0])
+    for data in somedata:
+        if data['ID'] == message_id:
+            doc = data
+            doc['ReviewerName'] =session['username']
+            doc['ReviewDate']= datetime.datetime.today().strftime('%Y-%m-%d')
+            doc['Remarks'] = remark
+            doc['state'] = response
+            if dao.upsertreview(doc):
+                somedata.remove(data)
             break
-        elif data['_id'] == message_id and case_id in db3 :
-            document = db3[case_id]
-            document['reviewed'][message_id] = data
-            document['reviewed'][message_id]['response'] = response
-            document['reviewed'][message_id]['reviewed_by'] = session['username']
-            document['reviewed'][message_id]['remarks'] = remark
-            db3.save(document)
-            break
+    print(remark)
+    print(response)
+    print(type(somedata))
+    return render_template('Dashboard.html',data=somedata)
 
-    contents = [d for d in contents if d.get('_id') != message_id]
-    session['message_content'] = contents
-    #flash('Event Deleted', 'success')
-    contents = sorted(contents, key=lambda i: i['severity'], reverse=True)
-    return render_template('Dashboard.html', data=contents)
 
+@app.route('/reviewedmessagetab')
+@is_logged_in
+def reviewedmessagetab():
+    return render_template('ReviewedMessages.html')
+
+@app.route('/reviewed', methods=['GET', 'POST'])
+@is_logged_in
+def reviewed():
+    from_date = request.form['fromDate']
+    print(from_date)
+    df = dao.getReviewedMessagesByDate(from_date)
+    if not df.empty:
+        print(df.shape)
+        dictDF = df.to_dict(orient='records')
+        print(len(dictDF))
+        return render_template('ReviewedMessages.html',data=dictDF)
+    else:
+        error = "No Data Available for the given date."
+        return render_template('ReviewedMessages.html', error=error)
 
 @app.errorhandler(500)
 def page_not_found(e):

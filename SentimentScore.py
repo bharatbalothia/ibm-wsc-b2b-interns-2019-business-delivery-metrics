@@ -19,6 +19,8 @@ sentence = "thanks but this is not good"
 #"password": "3384e899-f47c-4000-bb92-e258a21e66ce"
 #}
 
+
+#rajan wml creds
 wml_credentials={
 "url": "https://us-south.ml.cloud.ibm.com",
 "username": "ff914608-0372-41e3-a91c-16827a07f42e",
@@ -63,6 +65,7 @@ def predict(sentance):
         'https://us-south.ml.cloud.ibm.com/v3/wml_instances/ddfe31f9-1825-4820-a5b6-ba68232e2b2a/deployments/c02b3a9e-ca14-48f2-9d5b-1d815aee578b/online',
         json=payload_scoring, headers=header)
     prediction = json.loads(response_scoring.text)
+    print(prediction)
     for data in list(prediction['values']):
         resultvalue = data[0]
         # print(data)
@@ -71,5 +74,5 @@ def predict(sentance):
         else:
             value_scored = (data[1][0])
         # print(value_scored)
-        yield value_scored
+        yield "{0:.4f}".format(value_scored)
     #return predicted_score(prediction)

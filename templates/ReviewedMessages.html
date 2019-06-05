@@ -3,23 +3,12 @@
 {% block body %}
         <div class="container-fluid">
     <br>
-        <form action="/talk" method="POST" enctype="multipart/form-data">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Report File</label>
-            <input type="file" name="search" class="form-control" placeholder="Search Cases">
-                </div>
-            </div>
+        <form action="/reviewed" method="POST">
             <div class="col-sm-2" style="margin-left: 25px">
         <div class="form-group">
-            <label>Search For Date:</label>  <input type="date" id="todaydate" name="fromDate" class="form-control" value="2019-04-22" required>
+            <label>Date Reviewed:</label>  <input type="date" id="todaydate" name="fromDate" class="form-control" value="2019-04-22" required>
              </div>
             </div>
-            <!--<div class="col-sm-2" style="margin-left: 25px">
-        <div class="form-group">
-            <label>To Date: </label>  <input type="date" name="toDate"  class="form-control" value="2019-04-30" required>
-            </div>
-            </div>-->
             <div class="col-sm-3">
             <input style="margin-top: 25px" class="btn btn-primary" type="submit" value="Submit">
             </div>
@@ -28,6 +17,8 @@
             <table id="table3" class="table table-hover" style="border-collapse:collapse;
     table-layout:fixed; ">
             <tr>
+                <th style="width: 10%">Reviewer Name</th>
+                <th style="width: 10%">Review Date</th>
                 <th style="width: 10%">Case Number</th>
               <th  style="width: 10%">Created By</th>
                 <th  style="width: 10%">Modified Date</th>
@@ -35,11 +26,12 @@
                 <th style="width: 30%">Messages</th>
                 <th  style="width: 5%">Score</th>
                 <th  style="width: 10%">Remarks</th>
-                <th  style="width: 5%"></th>
-                <th  style="width: 5%"></th>
+                <th  style="width: 5%">State</th>
             </tr>
                     {%  for mess in data %}
                 <tr>
+                <td >{{ mess.REVIEWERNAME }} </td>
+                    <td >{{ mess.REVIEWDATE }} </td>
                     <td >{{ mess.CASENUMBER }} </td>
                     <td>
                         {{ mess.CREATEDBYFULLNAME }}
@@ -54,15 +46,14 @@
                         {{ mess.BODY }}
                     </td>
                     <td>
-                        {{ mess.score }}
+                        {{ mess.SCORE }}
                     </td>
-                    <form action="{{url_for('message_review', message_id=mess.ID)}}" method="post">
-                         <td><textarea name="remarks" class="form-control" cols="10" rows="1"></textarea></td>
-                         <input name="data" type="hidden" value="{{ data }}">
-                        <td><input type="submit" name="response" value="Correct" class="btn btn-default pull-right"></td>
-                        <td><input type="submit" name="response" value="Incorrect" class="btn btn-danger"></td>
-                     </form>
-
+                <td>
+                        {{ mess.REMARKS }}
+                    </td>
+                <td>
+                        {{ mess.STATE }}
+                    </td>
                 </tr>
                 {% endfor %}
             </table>

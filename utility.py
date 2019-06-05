@@ -12,7 +12,7 @@ def try_parsing_date(text):
 
 
 def correctString(input_string):
-    input_string = input_string.replace(".  ", ".").replace("&nbsp;"," ")
+    input_string = input_string.replace(".  ", ".").replace("&nbsp;"," ").replace('<p>',"").replace('</p>'," ")
     return (input_string[:2040] + '..') if len(input_string) > 2040 else input_string
 
 

@@ -12,16 +12,16 @@ Tech Data CA: ?
 
 Thanks,
 Aaron
-",,,
+",-0.8399432092238015,,
 TS001385583,"Westwood Shipping Lines, Inc.",Customer,"I'm sorry.  The issue evidently was not clear to me, as I tested and it appeared to work fine.  
 
 I now understand what the issue is and will get the file name changed.
-",,,
+",-0.8700594927473756,,
 TS001849059,"New Era Cap Co., Inc.",Customer,"Hi Glenna, it looks good. Please help to move it to production.
 
 Remark: This change is for email report only. Thank you,
-",,,
-TS001575238,CEVA LOGISTICS,Customer,"<p>Good morning Carol,</p><p>We tested some scenarios and we still need some adjustments.</p><p></p><p>CTE pid 61285782 - 04/06/2019 12:15:19 - The logic failed instruction#&zwnj; 100, 101.&nbsp;The below code should have been executed: IF STSROU.RTMAWB != BLANK AND STSROU.RTDSCC != ""US"" Then map STSROU.RTORED last occurrence.</p><p></p><p>Output should be DTM}068}20190406}1100 instead of DTM}068}20190406}1028~</p><p>----------------------------------</p><p>ETD - hawb#&zwnj; C12938139~</p><p>CTE pid 61285930 - 04/06/2019 12:30:13 failed The logic Line instruction#&zwnj; 50</p><p>TD5}2}4}DL}}002}}ZZ}MIA~ should be IAH Port of exit instead of MIA</p><p>-----------------------------------------</p><p>Line instr#&zwnj; 163 - (HEXECMOD) change the mapping to harcode ""DELAY"" as instructed in the paper map doc.</p><p>&nbsp;DTM}ZZZ}20190406}1513}}UN}A42~ should be DTM}ZZZ}20190406}1513}}UN}DELAY~</p><p>------------------------</p><p>CTE pid 61283469 - 04/06/2019 10:50:06 failed to produce TD505 and 06</p><p>Sample: TD5}2}4}AA}}999~</p><p>I have added 'Else map STSHDR.HDDSAC' to be: TD5}2}4}AA}}999~ZZ}SGN~</p><p></p><p>Thank you.</p>",,,
+",0.5504559727157281,,
+TS001575238,CEVA LOGISTICS,Customer,"<p>Good morning Carol,</p><p>We tested some scenarios and we still need some adjustments.</p><p></p><p>CTE pid 61285782 - 04/06/2019 12:15:19 - The logic failed instruction#&zwnj; 100, 101.&nbsp;The below code should have been executed: IF STSROU.RTMAWB != BLANK AND STSROU.RTDSCC != ""US"" Then map STSROU.RTORED last occurrence.</p><p></p><p>Output should be DTM}068}20190406}1100 instead of DTM}068}20190406}1028~</p><p>----------------------------------</p><p>ETD - hawb#&zwnj; C12938139~</p><p>CTE pid 61285930 - 04/06/2019 12:30:13 failed The logic Line instruction#&zwnj; 50</p><p>TD5}2}4}DL}}002}}ZZ}MIA~ should be IAH Port of exit instead of MIA</p><p>-----------------------------------------</p><p>Line instr#&zwnj; 163 - (HEXECMOD) change the mapping to harcode ""DELAY"" as instructed in the paper map doc.</p><p>&nbsp;DTM}ZZZ}20190406}1513}}UN}A42~ should be DTM}ZZZ}20190406}1513}}UN}DELAY~</p><p>------------------------</p><p>CTE pid 61283469 - 04/06/2019 10:50:06 failed to produce TD505 and 06</p><p>Sample: TD5}2}4}AA}}999~</p><p>I have added 'Else map STSHDR.HDDSAC' to be: TD5}2}4}AA}}999~ZZ}SGN~</p><p></p><p>Thank you.</p>",-0.826698937311745,,
 TS002074724,Sigma-Aldrich Corporation,Customer,"Hi Manju,
 
 Thank you. we will check and feedback you. Please note- the setup is for BIOCON.
@@ -31,16 +31,16 @@ Thank you,
 
 Regards,
 Gajendra
-",,,
+",-0.8799441789182653,,
 TS001385583,"Westwood Shipping Lines, Inc.",Customer,"I have changed the name of the outbound file to XML_WSL_ANSI315_HANKOOKROK[DATENNNNNNNNN].  I have tested it in our system and it goes out to IBM fine, but it is not being processed in CTE - I am sure that they failed.   I sent 11 messages.  Please change the name in your CTE system and see if they will process.  If so, I will do the same in Production.
-",,,
+",0.5754293070527406,,
 TS002008284,"Anheuser-Busch Companies, LLC",Customer,"Thanks David .
 
 We are good to close the ticket.
 
 Regards,
 Anjali
-",,,
+",0.6966825347065276,,
 TS001529916,Tesla Motors,Customer,"Hi Albert,
 
 TP has transmitted a dummy file in CTE on Turkey time at 01:37pm without any issues at their end. Attached the file for reference.
@@ -48,7 +48,7 @@ Please verify now.
 
 Regards,
 Arjun
-",,,
+",0.7390474669647619,,
 TS002085408,Madhusudhanan Anandan's Account,Customer,"Hi Mike,
  
 Thanks for the update. But client changed the path and configured the below two folders at their end.
@@ -61,16 +61,16 @@ Please note that this folder is only for AMAZON SLSRPT Folders.
  
 Thanks,
 Madhu
-",,,
+",-0.7600413602426713,,
 TS002107983,Micron Technology Inc,Customer,"Hi Team,
 
 Thank you. Testing was successful. Kindly move the changes to Production.
 
 Regards,
 Snehal
-",,,
+",0.5801426825468637,,
 TS001256579,Tesla Motors,Customer,"Closing incident as setup is ready in production
-",,,
+",-0.8269511020552224,,
 TS001596982,BOC Limited,Customer,"Hi IBM Team,
 
 Please see attached/uploaded files for this request - Monash University have issued comments about our invoice file. In addition to additions and removals, we are required to map through specific Bill To data, which means the ORDER file map will also be impacted. The catalyst and requirement is form the INVOICE file so ill only place it here, please adjust the ORDER file map to pull through the required data.
@@ -79,93 +79,4 @@ Please see attached/uploaded files for this request - Monash University have iss
              <Street>Level 5</Street>
              <City>MULGRAVE</City>
              <PostalCode>3170</PostalCode>
-",,,
-TS002105266,"Momentive Performance Materials, Inc",Customer,"Hi Moe,
-
- Sorry for a late response!
-
-Thanks for updating the URL. 
-
-Kindly let me know there are multiple batches which are available in mailbox but not getting picked up.
-
-I will give a brief history, we had an outage which lasted few days, these files had came during that duration and now we are not able to pick those batches. Kindly advise what action to be taken?
-
-Thanks,
-Subhasis?
-",,,
-TS002091240,Krono Services GmbH,Customer,"Hello,
-can you please move the flow to production.
-Cheers, Thomas
-",,,
-TS001473604,Micron Technology Inc,Customer,"Hi Madhu,
-
-I have done the testing for ORDCHG.
-EDI file is getting translated to IDOC but the carbon copy is getting generated twice due to which 2 different translation taking place
-which are generating 2 email Human readable files.
- 
-See below Process IDs in CTE. Please check.
-15385292: EDI file to IDOC
-15385304: EDI file to email with Reference No: 0000000741334285
-15385304: EDI file to email with Reference No: 9042287980
-Also, please increase the length of field Mail_BlankLine1 from 19 to 24 in MCRN_JABIL_I_ORDCHG-HR_D97A map.
-
-Thanks,
-Natasha?
-",,,
-TS002062680,"New Era Cap Co., Inc.",Customer,"Hello Lori,
-From my perspective I struggle to understand that a new PER is requested to just change an email title.
-In all cases, it is not worth going to that direction so we will push the existing change in production when IBM is able to do so.
-Thanks for your help, 
-",,,
-TS002028169,Lindt & Sprüngli,Customer,"Hi Narendra,
-
-We are still in the processing of testing the EDI 850 files, will update back once we are successfully done with testing.
-
-Regards,
-Preethi Natrajan
-",,,
-TS002068322,GameStop Inc.,Customer,"Thanks Tulu for all the help. Please go ahead and close the ticket.
-
-Thanks,
-Sujay
-",,,
-TS001823835,CEVA LOGISTICS,Customer,"thanks for the update. will test and validate.
-will let you know if there are any further issues.
-",,,
-TS002002196,Lindt & Sprüngli (France),Customer,"See new PER with more specification rules in chapter Detailed description of request TS002002196_-_Lindt_FR_-_PER_INVRPT_EWR_Updated_Flow_V2.docx. PER validate in our side.
-
-Please inform us as soon as possible about the time delivery.
-
-Regards.
-
-LM.
-",,,
-TS001473618,Micron Technology Inc,Customer,"Hi Madhu,
-
-Please complete the required ORDCHG setup in production for Jabil Shanghai. Please move this map to production.
-
-Thanks,
-Natasha?
-",,,
-TS002015052,Lindt & Sprüngli International AG,Customer,"Hello,
-
-I work with Laurent MALIE and I don't see any of his tickets.
-For example, TS002002196.
-Can you help me to have the same view of cases as him.
-
-Thanks in advance for your help.
-
-Regards,
-
-Emilie PROHARAM
-",,,
-TS002114402,TOYOTA MATERIAL HANDLING,Customer,"Hi IBM team,
-
-Please resend files to TP Birn.
-
-Regards,
-Lisbeth?
-",,,
-TS002101746,CEVA LOGISTICS,Customer,"Had informed earlier that I cannot get the cert file that your side had provided.
-Can you send zip file with cert ??
-",,,
+",0.6306597435906819,,
