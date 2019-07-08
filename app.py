@@ -14,7 +14,7 @@ from utility import correctString, try_parsing_date
 import resourse_recommend
 import ibm_db
 import uuid
-import Db2DataAcess as dao
+from Db2DataAcess import Db2DataAcess
 import SentimentScore
 
 app = Flask(__name__)
@@ -186,7 +186,7 @@ def sentiment():
     senders_location = secure_filename(senders_list.filename)
     if '.csv' in senders_list.filename.lower():
         senders_list.save(senders_location)
-        csvfile1 = open(senders_location, 'rt')
+        csvfile1 = open(senders_location,  'rt',encoding='latin1')
     else:
         error = "Please pass a .csv file only"
         return render_template('dailySentiment.html', error=error)
@@ -290,7 +290,7 @@ def talk():
         senders_location = secure_filename(case_numbers.filename)
         if '.csv' in case_numbers.filename.lower():
             case_numbers.save(senders_location)
-            csvfile1 = open(senders_location, 'rt')
+            csvfile1 = open(senders_location, 'rt',encoding='latin-1')
         else:
             error = "Please pass a .csv file only"
             return render_template('Dashboard.html', error=error)
@@ -308,6 +308,7 @@ def talk():
     print(from_date)
     print(case_numbers)
     #df = dao.getOpenCasesByRange(from_date=from_date,to_date=to_date)
+    dao = Db2DataAcess()
     if len(caselist) == 0:
         df = dao.getOpenCasesByDate(from_date)
     else:
@@ -338,8 +339,11 @@ def message_review(message_id):
     somedata = session['Content']
     print(len(somedata))
     print(somedata[0])
+    print(message_id)
+    dao = Db2DataAcess()
     for data in somedata:
-        if data['ID'] == message_id:
+        if data['ID'] == int(message_id):
+            print("entered")
             doc = data
             doc['ReviewerName'] =session['username']
             doc['ReviewDate']= datetime.datetime.today().strftime('%Y-%m-%d')
@@ -364,6 +368,7 @@ def reviewedmessagetab():
 def reviewed():
     from_date = request.form['fromDate']
     print(from_date)
+    dao = Db2DataAcess()
     df = dao.getReviewedMessagesByDate(from_date)
     if not df.empty:
         print(df.shape)
