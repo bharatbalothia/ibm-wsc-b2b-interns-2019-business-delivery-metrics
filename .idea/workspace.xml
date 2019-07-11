@@ -2,13 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08a7866f-7952-4380-8b3c-266c79784968" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db2DataAcess.py" beforeDir="false" afterPath="$PROJECT_DIR$/Db2DataAcess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputfiles/Inflow.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outputfiles/Inflow.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/under_construction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/under_construction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/041ffad7e81931cbb492db996f3223e4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/19e0cbe7c5709143b1e9f6c17840cfcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/27ce42d4a462b425220fc8072bbdfc4c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/29b0e4fe2453dcaeed06a62416fb37e9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/2fcd881da6824e70dee733e2fc8be86e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/304c982f6d3d3a30e2aac3a6dda63c30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/320ff3bfe8936137e3dc3b4ad55c9dd3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/39b3ee60a7b6eaaefa483185df41d56b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/5ddc9f33e4befa6bd325fb28aed9468b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/6a1d3ad6839bb9cbf381d224a9b36915" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/6c9c48d523e8fe202cf5670ada5d6237" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/7dba75373a4fec6082ab0e0834fef529" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/821b0a4bd553728640d4dfa90900d95c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/84ce8897740b0ae3afdf911eac60d55f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/893fb9d68e8d80484fe72e36cc85de67" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/8e4da4b92a98b2e3a4634c7dbfa802ca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/92113792a296e84f40bfc91c58d2198a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/948c1d3c67a75ce360d85fb609024c70" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/9514b0e6e8e1e7c6ea4d6a23b144e120" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/a689622902ee1fdfb75ed87cc3e3cbaf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/b5e4872c3111ce8fec145d24e5d19951" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/bf69170aed2429ac5ebd6542bb6980af" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/c22f8a4c3cacd41f73234f3cbd115734" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/c628036cb8e3d55ad2baff14f81feb40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/da9365f8df42c7319314e41f618cedbe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/dc6d5e247162cb32cc7ab7d948f0aedd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/edfd3650df1c3c4c842bc41ad233fd47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/f77a495615f8e18443303bb63c8250de" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/fb5ff0db46edb1847c2ce1b53b488545" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/fcb0a19860e350b9b46f3cf37e0a083b" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="404" selection-start-line="404" selection-end-line="404" />
+            <state relative-caret-position="-8">
+              <caret line="303" column="19" lean-forward="true" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -56,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Db2DataAcess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="169" selection-start-line="23" selection-start-column="137" selection-end-line="23" selection-end-column="169" />
+            <state relative-caret-position="243">
+              <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="52" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -66,70 +90,70 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/under_construction.html">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/64e5400d-b4cd-4eaf-ace3-63869e927253/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="221">
+              <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/Dashboard.html">
+        <entry file="file://$PROJECT_DIR$/DataLoading Scripts/OpencasesLoading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/ReviewedMessages.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resourse_recommend.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1172">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="-629">
+              <caret line="6" column="63" lean-forward="true" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLoading Scripts/TypeDataLoading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-544">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/64e5400d-b4cd-4eaf-ace3-63869e927253/console.sql">
+        <entry file="file://$PROJECT_DIR$/DataLoading Scripts/messageLoading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentimentAPI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="731">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
+        <entry file="file://$PROJECT_DIR$/DataLoading Scripts/timespentLoading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLoading Scripts/IterationLoading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,11 +211,16 @@
         <option value="$PROJECT_DIR$/templates/under_construction.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/sentimentAPI.py" />
+        <option value="$PROJECT_DIR$/DataLoading Scripts/timespentLoading.py" />
+        <option value="$PROJECT_DIR$/DataLoading Scripts/OpencasesLoading.py" />
+        <option value="$PROJECT_DIR$/DataLoading Scripts/IterationLoading.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/64e5400d-b4cd-4eaf-ace3-63869e927253/console.sql" />
+        <option value="$PROJECT_DIR$/DataLoading Scripts/TypeDataLoading.py" />
+        <option value="$PROJECT_DIR$/DataLoading Scripts/messageLoading.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="605" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
@@ -224,7 +253,7 @@
     <property name="DatabaseDriversLRU" value="db2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -254,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Flask server.Flask (sentimentAPI.py)">
+  <component name="RunManager" selected="Flask server.Flask (otherScripts/sentimentAPI.py)">
     <configuration name="Db2DataAcess" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CaseClassification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -299,7 +328,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -307,14 +336,14 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Flask (sentimentAPI.py)" type="Python.FlaskServer" factoryName="Flask server" temporary="true" nameIsGenerated="true">
+    <configuration name="Flask (otherScripts/sentimentAPI.py)" type="Python.FlaskServer" factoryName="Flask server" temporary="true" nameIsGenerated="true">
       <module name="CaseClassification" />
-      <option name="target" value="$PROJECT_DIR$/sentimentAPI.py" />
+      <option name="target" value="$PROJECT_DIR$/otherScripts/sentimentAPI.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -324,7 +353,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Flask server.Flask (sentimentAPI.py)" />
+        <item itemvalue="Flask server.Flask (otherScripts/sentimentAPI.py)" />
         <item itemvalue="Flask server.Flask (app.py)" />
         <item itemvalue="Python.Db2DataAcess" />
       </list>
@@ -372,18 +401,17 @@
       <workItem from="1560699925100" duration="15737000" />
       <workItem from="1561274887431" duration="509000" />
       <workItem from="1561359084254" duration="6589000" />
-      <workItem from="1561968224731" duration="9998000" />
+      <workItem from="1561968224731" duration="28795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352113000" />
+    <option name="totallyTimeSpent" value="370910000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49579832" visible="true" weight="0.17248322" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49579832" visible="true" weight="0.17248322" />
       <window_info id="Structure" order="1" sideWeight="0.50246304" side_tool="true" weight="0.11275168" />
       <window_info id="Favorites" order="2" sideWeight="0.5042017" side_tool="true" weight="0.11409396" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -397,9 +425,9 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32152975" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32152975" />
       <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.4674221" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.4674221" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -411,33 +439,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/watson_developer_cloud/natural_language_understanding_v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41482" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/watson_developer_cloud/assistant_v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5644" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/watson_developer_cloud/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#606#647#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/tablefilter/tablefilter.js" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="2308" selection-start-line="2308" selection-end-line="2308" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/werkzeug/wrappers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15839">
@@ -692,36 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Db2DataAcess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="169" selection-start-line="23" selection-start-column="137" selection-end-line="23" selection-end-column="169" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="404" selection-start-line="404" selection-end-line="404" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resourse_recommend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1172">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sentimentAPI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -732,10 +703,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resourse_recommend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-926">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="303" column="19" lean-forward="true" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Db2DataAcess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/64e5400d-b4cd-4eaf-ace3-63869e927253/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="221">
+          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLoading Scripts/IterationLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLoading Scripts/timespentLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLoading Scripts/OpencasesLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="6" column="63" lean-forward="true" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLoading Scripts/TypeDataLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLoading Scripts/messageLoading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
